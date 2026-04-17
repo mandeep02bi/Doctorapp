@@ -3,7 +3,6 @@ name: Flutter CI/CD
 on:
   push:
     branches: [main]
-
   pull_request:
     branches: [main]
 
@@ -21,10 +20,11 @@ jobs:
           distribution: "temurin"
           java-version: "17"
 
-      - name: Install Flutter Version 3.38.2
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.38.2"
+          flutter-version: "3.24.3" # ✅ valid version
+          channel: "stable"
 
       - name: Install Dependencies
         run: flutter pub get
