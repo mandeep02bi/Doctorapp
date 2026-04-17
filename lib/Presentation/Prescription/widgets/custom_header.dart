@@ -1,8 +1,9 @@
+import 'package:adixion/Core/helper/image_assets.dart';
 import 'package:flutter/material.dart';
 
-class CustomHeaderWidgets extends StatelessWidget {
+class CustomHeader extends StatelessWidget {
   final int currentStep;
-  const CustomHeaderWidgets({super.key, required this.currentStep});
+  const CustomHeader({super.key, required this.currentStep});
 
   static const _activeLabel = Color(0xFFF3F7FA);
   static const _inactiveLabel = Color(0xFFBDCBCE);
@@ -15,7 +16,7 @@ class CustomHeaderWidgets extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset('assets/images/Patient/header.png', fit: BoxFit.fill),
+          Image.asset(ImageAssets.headerPrescription, fit: BoxFit.fill),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
@@ -23,49 +24,68 @@ class CustomHeaderWidgets extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Image.asset(
-                        'assets/Icons/Patient/Frame.png',
-                        width: 35,
-                        height: 35.61,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       children: [
-                        Text(
-                          'Add New Patient',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Fill in patient details',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFFD0DCF4),
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                ImageAssets.backBottom,
+                                width: 35,
+                                height: 35.61,
+                              ),
+
+                              const SizedBox(width: 12),
+                              const Text(
+                                'Write Prescription',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.15),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            ImageAssets.calender,
+                            width: 12,
+                            height: 12,
+                          ),
+                          const SizedBox(width: 6),
+                          const Text(
+                            '12 Mar 2026',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
                 Row(
                   children: [
-                    Image.asset(
-                      'assets/Icons/Patient/Add.png',
-                      width: 40,
-                      height: 40,
-                    ),
+                    Image.asset(ImageAssets.addBottom, width: 40, height: 40),
                     const SizedBox(width: 16),
                     Expanded(
                       child: Column(
@@ -90,9 +110,9 @@ class CustomHeaderWidgets extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              _stepLabel("Personal", currentStep == 1),
+                              _stepLabel("Case History", currentStep == 1),
                               _stepLabel("Medical", currentStep == 2),
-                              _stepLabel("Address", currentStep == 3),
+                              _stepLabel("Lab Test", currentStep == 3),
                             ],
                           ),
                         ],

@@ -1,7 +1,8 @@
+import 'package:adixion/Core/helper/image_assets.dart';
 import 'package:adixion/Presentation/Patient/add_patient_screen_address_and_location.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_button.dart';
+import 'package:adixion/Core/widgets/custom_button.dart';
 import 'package:adixion/Presentation/Patient/widgets/custom_header_widgets.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_section_title.dart';
+import 'package:adixion/Core/widgets/custom_section_title.dart';
 import 'package:adixion/Presentation/Patient/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,7 @@ class MedicalInfoScreen extends StatefulWidget {
 
 class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
   final _formKey = GlobalKey<FormState>();
-  static const String backgroundImagePath =
-      'assets/images/Patient/bg (2).png';
+ 
 
   String? selectedBloodGroup;
   final List<String> bloodGroups = [
@@ -37,7 +37,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(backgroundImagePath),
+              image: AssetImage(ImageAssets.backgroundImagePath2),
               fit: BoxFit.cover,
             ),
           ),
@@ -78,7 +78,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Height (CM)",
                                     hint: "170",
                                     icon:
-                                        'assets/Icons/Patient/Height.png',
+                                        ImageAssets.heightCM,
                                     widthIcon: 16,
                                     heightIcon: 16,
                                     keyboardType: TextInputType.number,
@@ -90,7 +90,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Weight (KG)",
                                     hint: "65",
                                     icon:
-                                        'assets/Icons/Patient/Weight loss scale.png',
+                                        ImageAssets.weightKG,
                                     widthIcon: 16,
                                     heightIcon: 16,
                                     keyboardType: TextInputType.number,
@@ -107,7 +107,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Pulse",
                                     hint: "170",
                                     icon:
-                                        'assets/Icons/Patient/Pulse.png',
+                                        ImageAssets.pulse,
                                     widthIcon: 19,
                                     heightIcon: 19,
                                     keyboardType: TextInputType.number,
@@ -119,7 +119,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Respiratory Rate",
                                     hint: "65",
                                     icon:
-                                        'assets/Icons/Patient/Heart.png',
+                                        ImageAssets.respiratoryRate,
                                     widthIcon: 22,
                                     heightIcon: 22,
                                     keyboardType: TextInputType.number,
@@ -131,7 +131,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                             const SizedBox(height: 30),
 
                             const CustomSectionTitle(
-                              icon: 'assets/Icons/Patient/File.png',
+                              icon: ImageAssets.medicalHistory,
                               title: 'Medical History',
                               widthIcon: 18,
                               heightIcon: 18,
@@ -166,7 +166,8 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                 }
                               },
                               text: 'Continue',
-                              icon: Icons.arrow_forward,
+                              icon: ImageAssets.arrowForward,
+                              buttonColor: Color(0xFF8D34B0),
                             ),
                             const SizedBox(height: 20),
                           ],

@@ -2,6 +2,7 @@ import 'package:adixion/Core/Bloc/Home_bloc.dart';
 import 'package:adixion/Core/Controller.dart/themecontroller.dart';
 import 'package:adixion/Presentation/Patient/Patientlist.dart';
 import 'package:adixion/Presentation/Patient/add_patient_screen.dart';
+import 'package:adixion/Presentation/Prescription/prescription_from_doctor_side.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:animate_do/animate_do.dart';
@@ -310,9 +311,14 @@ class _DoctorhomescState extends State<Doctorhomesc> {
             ),
             SizedBox(width: 10),
             Expanded(
-              child: recordCard(
-                "assets/Icons/Home/Records/prescription.png",
-                "Prescription",
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(PrescriptionFromDoctorSide());
+                },
+                child: recordCard(
+                  "assets/Icons/Home/Records/prescription.png",
+                  "Prescription",
+                ),
               ),
             ),
           ],

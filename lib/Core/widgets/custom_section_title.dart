@@ -5,6 +5,7 @@ class CustomSectionTitle extends StatelessWidget {
   final String title;
   final double widthIcon;
   final double heightIcon;
+  final TextStyle? textStyle;
 
   const CustomSectionTitle({
     super.key,
@@ -12,6 +13,7 @@ class CustomSectionTitle extends StatelessWidget {
     required this.title,
     required this.widthIcon,
     required this.heightIcon,
+    this.textStyle,
   });
 
   @override
@@ -22,7 +24,7 @@ class CustomSectionTitle extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           title,
-          style: TextStyle(
+          style: textStyle ?? const TextStyle(
             color: Color(0xFF0F6E56),
             fontSize: 16,
             fontWeight: FontWeight.w600,
