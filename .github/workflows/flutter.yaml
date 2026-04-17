@@ -2,11 +2,10 @@ name: Flutter CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
@@ -39,7 +38,7 @@ jobs:
 
       - name: Deploy to Firebase via Fastlane
         env:
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE }}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
         run: |
           cd android
