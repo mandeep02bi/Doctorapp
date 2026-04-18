@@ -7,7 +7,6 @@ import 'package:adixion/Presentation/Prescription/widgets/custom_text_form_field
 import 'package:adixion/Presentation/Prescription/widgets/patient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
 
 class PrescriptionFromDoctorSide extends StatelessWidget {
   const PrescriptionFromDoctorSide({super.key});
@@ -117,7 +116,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                           children: [
                             Expanded(
                               child: CustomTextFormField(
-                                label: 'Height (cm)',
+                                label: 'Bp',
                                 hint: '170',
                                 fieldFillColor: Color(0xFFFFFFFF),
                                 icon: ImageAssets.heightPrescription,
@@ -131,7 +130,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                               child: CustomTextFormField(
                                 fieldFillColor: Color(0xFFFFFFFF),
                                 icon: ImageAssets.weight,
-                                label: 'Weight (kg)',
+                                label: 'Hemoglobin (Kg)',
                                 hint: '70',
                                 widthIcon: 16,
                                 heightIcon: 16,
@@ -161,6 +160,63 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                           heightIcon: 18,
                         ),
                         const SizedBox(height: 12),
+
+                        const CustomTextFormField(
+                          label: 'Treatment or Advice',
+                          hint:
+                              'Add instructions, follow-up advice, restrictions...',
+                          hintStyle: TextStyle(
+                            fontSize: 12,
+                            color: Color(0xFF787878),
+                          ),
+
+                          fieldFillColor: Color(0xFFF9FCFF),
+                          keyboardType: TextInputType.multiline,
+                        ),
+                        const SizedBox(height: 12),
+
+                        const CustomTextFormField(
+                          label: 'Chest Complaint',
+                          hint:
+                              'Add instructions, follow-up advice, restrictions...',
+                          hintStyle: TextStyle(
+                            fontSize: 12,
+                            color: Color(0xFF787878),
+                          ),
+
+                          fieldFillColor: Color(0xFFF9FCFF),
+                          keyboardType: TextInputType.multiline,
+                        ),
+                        SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: CustomTextFormField(
+                                label: 'Spo2',
+                                hint: '170',
+                                fieldFillColor: Color(0xFFFFFFFF),
+                                icon: ImageAssets.heightPrescription,
+                                widthIcon: 16,
+                                heightIcon: 16,
+                                keyboardType: TextInputType.number,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: CustomTextFormField(
+                                fieldFillColor: Color(0xFFFFFFFF),
+                                icon: ImageAssets.weight,
+                                label: 'Respriotry',
+                                hint: '70',
+                                widthIcon: 16,
+                                heightIcon: 16,
+                                keyboardType: TextInputType.number,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+
                         const CustomTextFormField(
                           label: 'DOCTOR’S NOTES',
                           hint:

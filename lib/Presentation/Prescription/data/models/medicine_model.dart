@@ -6,6 +6,7 @@ class MedicineModel {
   final String routeForm;
   final String noOfDays;
   final String instruction;
+  final String type;
 
   MedicineModel({
     this.id,
@@ -15,6 +16,7 @@ class MedicineModel {
     required this.routeForm,
     required this.noOfDays,
     required this.instruction,
+    this.type = 'medicine',
   });
 
   Map<String, dynamic> toMap() {
@@ -26,6 +28,7 @@ class MedicineModel {
       'route_form': routeForm,
       'no_of_days': noOfDays,
       'instruction': instruction,
+      'type': type,
     };
   }
 
@@ -38,6 +41,7 @@ class MedicineModel {
       routeForm: map['route_form'],
       noOfDays: map['no_of_days'],
       instruction: map['instruction'],
+      type: map['type'] ?? 'medicine',
     );
   }
 }

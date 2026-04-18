@@ -20,23 +20,31 @@ class MedicineDatabase {
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _createDB,
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < 2) {
+          await db.execute(
+            "ALTER TABLE medicines ADD COLUMN type TEXT DEFAULT 'medicine'",
+          );
+        }
+      },
     );
   }
 
   Future _createDB(Database db, int version) async {
     await db.execute('''
-      CREATE TABLE medicines (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        medicine_name TEXT NOT NULL,
-        qty TEXT NOT NULL,
-        frequency TEXT NOT NULL,
-        route_form TEXT NOT NULL,
-        no_of_days TEXT NOT NULL,
-        instruction TEXT NOT NULL
-      )
-    ''');
+    CREATE TABLE medicines (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      medicine_name TEXT NOT NULL,
+      qty TEXT NOT NULL,
+      frequency TEXT NOT NULL,
+      route_form TEXT NOT NULL,
+      no_of_days TEXT NOT NULL,
+      instruction TEXT NOT NULL,
+      type TEXT DEFAULT 'medicine'
+    )
+  ''');
   }
 
   // Insert
@@ -45,21 +53,30 @@ class MedicineDatabase {
     return await db.insert('medicines', medicine.toMap());
   }
 
-  // Get All
   Future<List<MedicineModel>> getAllMedicines() async {
-    final db = await instance.database;
-    final result = await db.query('medicines', orderBy: 'id DESC');
-    return result.map((map) => MedicineModel.fromMap(map)).toList();
+    final db = await database;
+    final result = await db.query(
+      'medicines',
+      where: 'type = ?',
+      whereArgs: ['medicine'],
+    );
+    return result.map((e) => MedicineModel.fromMap(e)).toList();
+  }
+
+  Future<List<MedicineModel>> getAllLabTests() async {
+    final db = await database;
+    final result = await db.query(
+      'medicines',
+      where: 'type = ?',
+      whereArgs: ['lab'],
+    );
+    return result.map((e) => MedicineModel.fromMap(e)).toList();
   }
 
   // Delete
   Future<int> deleteMedicine(int id) async {
     final db = await instance.database;
-    return await db.delete(
-      'medicines',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await db.delete('medicines', where: 'id = ?', whereArgs: [id]);
   }
 
   // Close DB

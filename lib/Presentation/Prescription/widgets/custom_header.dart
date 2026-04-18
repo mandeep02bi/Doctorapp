@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
   final int currentStep;
-  const CustomHeader({super.key, required this.currentStep});
 
+  const CustomHeader({super.key, required this.currentStep});
   static const _activeLabel = Color(0xFFF3F7FA);
   static const _inactiveLabel = Color(0xFFBDCBCE);
 

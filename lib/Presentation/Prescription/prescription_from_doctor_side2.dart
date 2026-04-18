@@ -4,12 +4,16 @@ import 'package:adixion/Core/widgets/custom_button.dart';
 import 'package:adixion/Core/widgets/custom_section_title.dart';
 import 'package:adixion/Presentation/Prescription/data/data_source/medicine_database.dart';
 import 'package:adixion/Presentation/Prescription/data/models/medicine_model.dart';
+import 'package:adixion/Presentation/Prescription/prescription_from_doctor_side_lab.dart';
 import 'package:adixion/Presentation/Prescription/widgets/border_container.dart';
 import 'package:adixion/Presentation/Prescription/widgets/button_prescription.dart';
 import 'package:adixion/Presentation/Prescription/widgets/custom_header.dart';
 import 'package:adixion/Presentation/Prescription/widgets/custom_text_form_field.dart';
+import 'package:adixion/Presentation/Prescription/widgets/empty_state.dart';
 import 'package:adixion/Presentation/Prescription/widgets/patient_widgets.dart';
+import 'package:adixion/Presentation/Prescription/widgets/show_add_medicine_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class PrescriptionFromDoctorSide2 extends StatefulWidget {
   const PrescriptionFromDoctorSide2({super.key});
@@ -94,13 +98,14 @@ class _PrescriptionFromDoctorSide2State
                               child: CircularProgressIndicator(),
                             );
                           }
-
                           final medicines = snapshot.data ?? [];
-
                           if (medicines.isEmpty) {
-                            return _buildEmptyState();
+                            return EmptyState(
+                              icon: ImageAssets.drugs,
+                              subtitle: 'Tap below to add medicines',
+                              title: 'No medicines add yet',
+                            );
                           }
-
                           return ListView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -272,7 +277,7 @@ class _PrescriptionFromDoctorSide2State
                             height: 50,
                             width: 335,
                             onPressed: () async {
-                              await _showAddMedicineSheet(context);
+                              await showAddMedicineSheet(context);
                               _refreshData();
                             },
                             text: 'Add Medicine',
@@ -306,7 +311,11 @@ class _PrescriptionFromDoctorSide2State
                         heightIcon: 16,
                       ),
                       const SizedBox(height: 25),
-                      ButtonPrescription(onPressed: () {}),
+                      ButtonPrescription(
+                        onPressed: () {
+                          Get.to(const PrescriptionFromDoctorSideLab());
+                        },
+                      ),
                       const SizedBox(height: 24),
                     ],
                   ),
@@ -318,296 +327,4 @@ class _PrescriptionFromDoctorSide2State
       ),
     );
   }
-
-  Widget _buildEmptyState() {
-    return Padding(
-      padding: const EdgeInsets.all(2.0),
-      child: DashedBorderContainer(
-        child: Container(
-          height: 154,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: ColorApp.scaffoldColor,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(ImageAssets.drugs, width: 40, height: 40),
-              const SizedBox(height: 6),
-              Text(
-                'No medicines add yet',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: ColorApp.gery2,
-                ),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                'Tap below to add medicines',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: ColorApp.gery1,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-Future<void> _showAddMedicineSheet(BuildContext context) async {
-  final medicineNameController = TextEditingController();
-  final qtyController = TextEditingController();
-  final frequencyController = TextEditingController();
-  final routeFormController = TextEditingController();
-  final noOfDaysController = TextEditingController();
-  final instructionController = TextEditingController();
-
-  return showModalBottomSheet(
-    context: context,
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent,
-    builder: (context) {
-      return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.85,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    height: 5,
-                    width: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-
-                Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Image.asset(
-                      ImageAssets.remove,
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 10),
-
-                const Text(
-                  "Add Medicine",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                ),
-
-                const SizedBox(height: 20),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Name of Medicine / Product",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: ColorApp.labelColor,
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      "T.Qty",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: ColorApp.labelColor,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: CustomTextFormField(
-                        controller: medicineNameController,
-                        label: '',
-                        hint: 'Medicine Name',
-                        icon: ImageAssets.stethoscope,
-                        fieldFillColor: Color(0xFFF9FCFF),
-                        widthIcon: 18,
-                        heightIcon: 18,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: CustomTextFormField(
-                        controller: qtyController,
-                        label: '',
-                        hint: 'Qty',
-                        fieldFillColor: Color(0xFFF9FCFF),
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 15),
-
-                // Save and Add + Choose Template buttons
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: CustomButton(
-                        width: 150,
-                        height: 60,
-                        onPressed: () {},
-                        text: 'Save and Add ',
-                        textStyle: TextStyle(
-                          fontSize: 12,
-                          color: ColorApp.textColor,
-                        ),
-                        border: Border.all(color: ColorApp.textColor, width: 1),
-                        buttonColor: ColorApp.scaffoldColor,
-                        icon: ImageAssets.drft,
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomButton(
-                        width: 150,
-                        height: 60,
-                        onPressed: () {},
-                        text: 'Choose Template ',
-                        icon: ImageAssets.drft,
-                        textStyle: TextStyle(
-                          fontSize: 12,
-                          color: ColorApp.textColor,
-                        ),
-                        border: Border.all(color: ColorApp.textColor, width: 1),
-                        buttonColor: ColorApp.scaffoldColor,
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 20),
-
-                // FREQUENCY + ROUTE/FORM labels
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTextFormField(
-                        controller: frequencyController,
-                        label: 'Frequency',
-                        hint: '170',
-                        icon: ImageAssets.heightPrescription,
-                        widthIcon: 16,
-                        heightIcon: 16,
-                        fieldFillColor: ColorApp.scaffoldColor,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: CustomTextFormField(
-                        controller: routeFormController,
-                        label: 'Route/ form',
-                        hint: '65',
-                        icon: ImageAssets.weight,
-                        widthIcon: 16,
-                        heightIcon: 16,
-                        fieldFillColor: ColorApp.scaffoldColor,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTextFormField(
-                        controller: noOfDaysController,
-                        label: 'No of Days',
-                        hint: '170',
-                        icon: ImageAssets.heightPrescription,
-                        widthIcon: 16,
-                        heightIcon: 16,
-                        fieldFillColor: ColorApp.scaffoldColor,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: CustomTextFormField(
-                        controller: instructionController,
-                        label: 'Instruction',
-                        hint: '65',
-                        icon: ImageAssets.weight,
-                        widthIcon: 16,
-                        heightIcon: 16,
-                        fieldFillColor: ColorApp.scaffoldColor,
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 20),
-
-                const CustomTextFormField(
-                  label: 'Additional Comments',
-                  hint: "Add instructions, follow-up advice, restictions...",
-                  hintStyle: TextStyle(
-                    fontSize: 12,
-                    color: ColorApp.labelColor,
-                  ),
-                  keyboardType: TextInputType.multiline,
-                  fieldFillColor: Color(0xFFF9FCFF),
-                ),
-                const SizedBox(height: 20),
-
-                Center(
-                  child: CustomButton(
-                    onPressed: () async {
-                      if (medicineNameController.text.trim().isEmpty) return;
-
-                      final medicine = MedicineModel(
-                        medicineName: medicineNameController.text.trim(),
-                        qty: qtyController.text.trim(),
-                        frequency: frequencyController.text.trim(),
-                        routeForm: routeFormController.text.trim(),
-                        noOfDays: noOfDaysController.text.trim(),
-                        instruction: instructionController.text.trim(),
-                      );
-
-                      await MedicineDatabase.instance.insertMedicine(medicine);
-                      if (context.mounted) Navigator.pop(context);
-                    },
-                    text: 'Add Medicine',
-                    height: 70,
-                    width: 200,
-                    icon: ImageAssets.drugs,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    },
-  );
 }

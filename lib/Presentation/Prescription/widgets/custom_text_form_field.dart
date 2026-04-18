@@ -15,6 +15,8 @@ class CustomTextFormField extends StatelessWidget {
   final double? heightIcon;
   final Color? fieldFillColor;
   final TextStyle? hintStyle;
+    final TextStyle? lableStyle;
+
 
   const CustomTextFormField({
     super.key,
@@ -31,6 +33,7 @@ class CustomTextFormField extends StatelessWidget {
     this.heightIcon,
     this.fieldFillColor,
     this.hintStyle,
+    this.lableStyle,
   });
 
   static const Color primaryGreen = Color(0xFF0F6E56);
@@ -43,7 +46,7 @@ class CustomTextFormField extends StatelessWidget {
       children: [
         Text(
           label.toUpperCase(),
-          style: const TextStyle(
+          style: lableStyle ?? TextStyle(
             fontSize: 14,
             color: ColorApp.labelColor,
             fontWeight: FontWeight.w600,

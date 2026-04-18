@@ -45,7 +45,7 @@ class _DoctorhomescState extends State<Doctorhomesc> {
                       children: [
                         header(),
                         Expanded(child: content()),
-                        // SizedBox(height: 80), // space for bottom bar
+                        // SizedBox(height: 80), 
                       ],
                     ),
                   ),

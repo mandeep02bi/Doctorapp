@@ -1,9 +1,10 @@
+import 'package:adixion/Core/helper/image_assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String text;
-  final String icon;
+  final String? icon;
   final double? widthicon;
   final double? heighticon;
   final Color? buttonColor;
@@ -16,7 +17,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.text,
-    required this.icon,
+    this.icon,
     this.buttonColor,
     this.widthicon,
     this.heighticon,
@@ -42,13 +43,14 @@ class CustomButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                icon,
-                width: widthicon ?? 16,
-                height: heighticon ?? 15.83,
-              ),
-              const SizedBox(width: 10),
-
+              if (icon != null) ...[
+                Image.asset(
+                  icon!,
+                  width: widthicon ?? 16,
+                  height: heighticon ?? 15.83,
+                ),
+                const SizedBox(width: 10),
+              ],
               Text(
                 text,
                 style:

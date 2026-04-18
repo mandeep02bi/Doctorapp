@@ -41,4 +41,6 @@ class ImageAssets {
   static const String add = 'assets/images/Icons/Prescription/add.png';
   static const String remove = 'assets/images/Icons/Prescription/exite.png';
   static const String baneg = 'assets/images/Icons/Prescription/Group.png';
+  static const String lab = 'assets/images/Icons/Prescription/Flask.png';
+  static const String avatar = 'assets/images/Icons/Prescription/avatar.png';
 }
