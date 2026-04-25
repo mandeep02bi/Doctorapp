@@ -1,8 +1,9 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Presentation/Reminder/reminder_pay.dart';
-import 'package:adixion/Presentation/Reminder/reminder_notes.dart';
-import 'package:adixion/Presentation/Reminder/widgets/action_button.dart';
-import 'package:adixion/Presentation/Reminder/widgets/user_drop_down_card.dart';
+
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Presentation/Reminder/reminder_notes.dart';
+import 'package:doctor/Presentation/Reminder/reminder_pay.dart';
+import 'package:doctor/Presentation/Reminder/widgets/action_button.dart';
+import 'package:doctor/Presentation/Reminder/widgets/user_drop_down_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 

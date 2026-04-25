@@ -1,11 +1,14 @@
-import 'package:adixion/Core/theme/color_app.dart';
+import 'package:doctor/Core/Theme/color_app.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFormFieldCore extends StatelessWidget {
+class CustomFormField extends StatelessWidget {
   final String label;
   final String hint;
   final String? icon;
-  final String? suffixIcon;
+    final String? subText; // 👈 NEW STRING
+
+  final IconData? suffixIcon;
+  final String? suffixIconPath;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
@@ -13,17 +16,21 @@ class CustomTextFormFieldCore extends StatelessWidget {
   final Color? iconColor;
   final double? widthIcon;
   final double? heightIcon;
-  final Color? fieldFillColor;
-  final TextStyle? hintStyle;
-    final TextStyle? lableStyle;
+    /// 🔥 NEW
+  final bool isDateField;
+  final VoidCallback? onTap;
+    final Color? fieldFillColor;
+    final TextStyle? hintStyle;
 
 
-  const CustomTextFormFieldCore({
+   CustomFormField({
     super.key,
     required this.label,
     required this.hint,
     this.icon,
+    this.subText,
     this.suffixIcon,
+    this.suffixIconPath,
     this.controller,
     this.validator,
     this.keyboardType = TextInputType.text,
@@ -31,11 +38,13 @@ class CustomTextFormFieldCore extends StatelessWidget {
     this.iconColor,
     this.widthIcon,
     this.heightIcon,
-    this.fieldFillColor,
-    this.hintStyle,
-    this.lableStyle,
+    this.isDateField = false,
+    this.onTap,
+    this.fieldFillColor = const Color(0xFFF8FEFB),
+    this.hintStyle
   });
 
+  // static const Color fieldFillColor = Color(0xFFF8FEFB);
   static const Color primaryGreen = Color(0xFF0F6E56);
   static const Color borderSideColor = Color(0xFFE0E0E0);
 
@@ -46,10 +55,10 @@ class CustomTextFormFieldCore extends StatelessWidget {
       children: [
         Text(
           label.toUpperCase(),
-          style: lableStyle ?? TextStyle(
-            fontSize: 14,
-            color: ColorApp.labelColor,
-            fontWeight: FontWeight.w600,
+          style: const TextStyle(
+            fontSize: 11,
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
             letterSpacing: 0.8,
           ),
         ),
@@ -59,10 +68,13 @@ class CustomTextFormFieldCore extends StatelessWidget {
           controller: controller,
           validator: validator,
           keyboardType: keyboardType,
-          cursorColor: ColorApp.textColor,
+          readOnly: isDateField, // 🔥 IMPORTANT
+          onTap: onTap,
+          cursorColor: primaryGreen,
           maxLines: keyboardType == TextInputType.multiline ? 3 : 1,
           decoration: InputDecoration(
             hintText: hint,
+            // hintStyle: TextStyle(color: textColor, fontSize: 14),
             hintStyle:
                 hintStyle ??
                 const TextStyle(fontSize: 14, color: ColorApp.hintColor),
@@ -78,19 +90,20 @@ class CustomTextFormFieldCore extends StatelessWidget {
                   )
                 : null,
             suffixIcon: suffixIcon != null
-                 ? Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Image.asset(
-                      suffixIcon!,
-                      width: widthIcon,
-                      height: heightIcon,
-                      fit: BoxFit.contain,
-                    ),
-                  )
-                : null,
+                ? Icon(suffixIcon, size: 20, color: iconColor ?? Colors.black87)
+                : suffixIconPath != null
+                    ? Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Image.asset(
+                          suffixIconPath!,
+                          width: widthIcon,
+                          height: heightIcon,
+                        ),
+                      )
+                    : null,
             filled: true,
-
             fillColor: fieldFillColor,
+
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: borderSideColor),

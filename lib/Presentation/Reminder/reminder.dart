@@ -1,7 +1,8 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Presentation/Reminder/widgets/custom_header_reminder.dart';
-import 'package:adixion/Presentation/Reminder/widgets/reminder_list_view.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Presentation/Reminder/widgets/custom_header_reminder.dart';
+import 'package:doctor/Presentation/Reminder/widgets/reminder_list_view.dart';
 import 'package:flutter/material.dart';
 
 class Reminder extends StatefulWidget {

@@ -1,9 +1,10 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Core/widgets/custom_section_title.dart';
-import 'package:adixion/Core/widgets/custom_text_form_field_core.dart';
-import 'package:adixion/Presentation/Reminder/widgets/custom_header_reminder.dart';
-import 'package:adixion/Presentation/Reminder/widgets/date_reminder_picker.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Presentation/Reminder/widgets/custom_header_reminder.dart';
+import 'package:doctor/Presentation/Reminder/widgets/date_reminder_picker.dart';
+import 'package:doctor/widgets/Add_patient/custom_section_title.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ReminderNotes extends StatelessWidget {
@@ -79,7 +80,7 @@ class ReminderNotes extends StatelessWidget {
                           heightIcon: 18,
                         ),
                         SizedBox(height: 10),
-                        const CustomTextFormFieldCore(
+                         CustomFormField(
                           label: 'TITLE',
                           hint: 'Select Blood Group',
                           hintStyle: TextStyle(
@@ -92,7 +93,7 @@ class ReminderNotes extends StatelessWidget {
                           widthIcon: 18,
                         ),
                         SizedBox(height: 10),
-                        const CustomTextFormFieldCore(
+                         CustomFormField(
                           label: 'DESCRIPTION',
                           hint: 'e.g. Penicillin, Peanuts, Latex...',
                           hintStyle: TextStyle(

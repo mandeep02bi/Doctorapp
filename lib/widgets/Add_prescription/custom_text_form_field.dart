@@ -1,10 +1,11 @@
+import 'package:doctor/Core/Theme/color_app.dart';
 import 'package:flutter/material.dart';
 
-class CustomFormField extends StatelessWidget {
+class CustomTextFormField extends StatelessWidget {
   final String label;
   final String hint;
   final String? icon;
-  final IconData? suffixIcon;
+  final String? suffixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
@@ -12,8 +13,12 @@ class CustomFormField extends StatelessWidget {
   final Color? iconColor;
   final double? widthIcon;
   final double? heightIcon;
+  final Color? fieldFillColor;
+  final TextStyle? hintStyle;
+    final TextStyle? lableStyle;
 
-  const CustomFormField({
+
+  const CustomTextFormField({
     super.key,
     required this.label,
     required this.hint,
@@ -26,9 +31,11 @@ class CustomFormField extends StatelessWidget {
     this.iconColor,
     this.widthIcon,
     this.heightIcon,
+    this.fieldFillColor,
+    this.hintStyle,
+    this.lableStyle,
   });
 
-  static const Color fieldFillColor = Color(0xFFF8FEFB);
   static const Color primaryGreen = Color(0xFF0F6E56);
   static const Color borderSideColor = Color(0xFFE0E0E0);
 
@@ -39,10 +46,10 @@ class CustomFormField extends StatelessWidget {
       children: [
         Text(
           label.toUpperCase(),
-          style: const TextStyle(
-            fontSize: 11,
-            color: Colors.grey,
-            fontWeight: FontWeight.bold,
+          style: lableStyle ?? TextStyle(
+            fontSize: 14,
+            color: ColorApp.labelColor,
+            fontWeight: FontWeight.w600,
             letterSpacing: 0.8,
           ),
         ),
@@ -52,11 +59,13 @@ class CustomFormField extends StatelessWidget {
           controller: controller,
           validator: validator,
           keyboardType: keyboardType,
-          cursorColor: primaryGreen,
+          cursorColor: ColorApp.textColor,
           maxLines: keyboardType == TextInputType.multiline ? 3 : 1,
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: TextStyle(color: textColor, fontSize: 14),
+            hintStyle:
+                hintStyle ??
+                const TextStyle(fontSize: 14, color: ColorApp.hintColor),
             prefixIcon: icon != null
                 ? Padding(
                     padding: const EdgeInsets.all(12),
@@ -69,11 +78,19 @@ class CustomFormField extends StatelessWidget {
                   )
                 : null,
             suffixIcon: suffixIcon != null
-                ? Icon(suffixIcon, size: 20, color: iconColor ?? Colors.black87)
+                 ? Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Image.asset(
+                      suffixIcon!,
+                      width: widthIcon,
+                      height: heightIcon,
+                      fit: BoxFit.contain,
+                    ),
+                  )
                 : null,
             filled: true,
-            fillColor: fieldFillColor,
 
+            fillColor: fieldFillColor,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: borderSideColor),

@@ -1,4 +1,4 @@
-import 'package:adixion/Presentation/AuthScreen/LoginSC.dart';
+import 'package:doctor/Presentation/AuthScreen/LoginSC.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -203,7 +203,7 @@ class _OnboardscState extends State<Onboardsc> {
               0,
             ),
             child: CircleAvatar(
-              radius: 120,
+              radius: 150,
               backgroundImage: AssetImage(image),
             ),
           ),
@@ -234,7 +234,7 @@ class _OnboardscState extends State<Onboardsc> {
               child: Text(
                 desc,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey, fontSize: 16),
               ),
             ),
           ),

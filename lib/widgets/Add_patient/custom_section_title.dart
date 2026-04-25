@@ -5,7 +5,8 @@ class CustomSectionTitle extends StatelessWidget {
   final String title;
   final double widthIcon;
   final double heightIcon;
-  final TextStyle? textStyle;
+    final TextStyle? textStyle;
+
 
   const CustomSectionTitle({
     super.key,
@@ -13,7 +14,8 @@ class CustomSectionTitle extends StatelessWidget {
     required this.title,
     required this.widthIcon,
     required this.heightIcon,
-    this.textStyle,
+        this.textStyle,
+
   });
 
   @override

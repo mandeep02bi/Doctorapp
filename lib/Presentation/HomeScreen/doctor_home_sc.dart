@@ -1,8 +1,9 @@
-import 'package:adixion/Core/Bloc/Home_bloc.dart';
-import 'package:adixion/Core/Controller.dart/themecontroller.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/bttom_navigation_bar.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/content.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/custom_header_home.dart';
+
+import 'package:doctor/Core/Bloc/Home_bloc.dart';
+import 'package:doctor/Core/Controller.dart/themecontroller.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/bttom_navigation_bar.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/content.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/custom_header_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,10 +1,11 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
-import 'package:adixion/Presentation/Prescription/data/data_source/medicine_database.dart';
-import 'package:adixion/Presentation/Prescription/data/models/medicine_model.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_header_preview.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_text_form_field.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Data/Data_source/Medicine_datasource.dart';
+import 'package:doctor/Data/model/medicine_model.dart';
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
+import 'package:doctor/widgets/Add_prescription/custom_hader_preview.dart';
+import 'package:doctor/widgets/Add_prescription/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class PrescriptionPreviewPage extends StatefulWidget {
@@ -236,32 +237,75 @@ class _PrescriptionPreviewPageState extends State<PrescriptionPreviewPage> {
 
                       const SizedBox(height: 24),
 
+                      const SizedBox(height: 12),
+
                       Row(
-                        children: [
-                          Expanded(
-                            child: CustomButton(
-                              height: 55,
-                              onPressed: () {},
-                              text: '+ Add Medicine',
-                              textStyle: TextStyle(
-                                color: ColorApp.textColor,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              border: Border.all(
-                                color: ColorApp.textColor,
-                                width: 1.5,
-                              ),
-                              buttonColor: Colors.transparent,
+                      children: [
+                        Flexible(
+                          child: CustomButton(
+                            height: 55,
+                            onPressed: () {},
+                            text: 'Preview',
+                            textStyle: TextStyle(
+                              color: const Color.fromRGBO(77, 184, 163, 1),
+                              fontSize: 10,
+                              fontWeight: FontWeight.w200,
+                            ),
+                            border: Border.all(
+                              color: ColorApp.textColor,
+                              width: 1.5,
+                            ),
+                            buttonColor: Colors.transparent,
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Flexible(
+                          child: CustomButton(
+                            height: 55,
+                            onPressed: () {},
+                            text: 'Download',
+                            buttonColor: const Color(0xFF8D34B0),
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w200,
                             ),
                           ),
-                          const SizedBox(width: 12),
+                        ),
+                      ],
+                    ),
+
+
+
+                      const SizedBox(height: 20),
+
+
+                      Row(
+                        children: [
+                          // Expanded(
+                          //   child: CustomButton(
+                          //     height: 55,
+                          //     onPressed: () {},
+                          //     text: '+ Add Medicine',
+                          //     textStyle: TextStyle(
+                          //       color: ColorApp.textColor,
+                          //       fontSize: 13,
+                          //       fontWeight: FontWeight.w600,
+                          //     ),
+                          //     border: Border.all(
+                          //       color: ColorApp.textColor,
+                          //       width: 1.5,
+                          //     ),
+                          //     buttonColor: Colors.transparent,
+                          //   ),
+                          // ),
+                          // const SizedBox(width: 12),
                           Expanded(
                             child: CustomButton(
                               height: 55,
                               onPressed: () {},
                               text: 'Send',
-                              icon: ImageAssets.send,
+                              subText: ImageAssets.send,
                               buttonColor: const Color(0xFF8D34B0),
                               textStyle: const TextStyle(
                                 color: Colors.white,
@@ -272,46 +316,8 @@ class _PrescriptionPreviewPageState extends State<PrescriptionPreviewPage> {
                           ),
                         ],
                       ),
+                                            const SizedBox(height: 20),
 
-                      const SizedBox(height: 12),
-
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CustomButton(
-                              height: 55,
-                              onPressed: () {},
-                              text: 'Preview Prescription',
-                              textStyle: TextStyle(
-                                color: ColorApp.textColor,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              border: Border.all(
-                                color: ColorApp.textColor,
-                                width: 1.5,
-                              ),
-                              buttonColor: Colors.transparent,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: CustomButton(
-                              height: 55,
-                              onPressed: () {},
-                              text: 'Download Prescription',
-                              buttonColor: const Color(0xFF8D34B0),
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(height: 20),
                     ],
                   ),
                 ),

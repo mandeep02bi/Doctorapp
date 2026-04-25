@@ -1,4 +1,4 @@
-import 'package:adixion/Core/Controller.dart/drawercontroller.dart';
+import 'package:doctor/Core/Controller.dart/drawercontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,4 +1,3 @@
-import 'package:adixion/Core/helper/image_assets.dart';
 import 'package:flutter/material.dart';
 
 class PatientWidgets extends StatelessWidget {
@@ -21,15 +20,22 @@ class PatientWidgets extends StatelessWidget {
       ),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              ImageAssets.at,
-              width: 40.51,
-              height: 38.51,
-              fit: BoxFit.cover,
-            ),
-          ),
+          // ClipRRect(
+          //   borderRadius: BorderRadius.circular(12),
+          //   child: Image.asset(
+          //     ImageAssets.at,
+          //     width: 40.51,
+          //     height: 38.51,
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
+           CircleAvatar(
+                                  radius: 22,
+                                  backgroundColor: Colors.blueGrey,
+                                  child: const Text("AT",
+                                      style: TextStyle(color: Colors.white)),
+                                ),
+
     
           const SizedBox(width: 12),
     
@@ -50,7 +56,7 @@ class PatientWidgets extends StatelessWidget {
             ),
           ),
     
-          Image.asset(ImageAssets.more, width: 10, height: 5),
+          // Image.asset(ImageAssets.more, width: 10, height: 5),
         ],
       ),
     );

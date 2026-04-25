@@ -6,7 +6,8 @@ class MedicineModel {
   final String routeForm;
   final String noOfDays;
   final String instruction;
-  final String type;
+    final String type;
+
 
   MedicineModel({
     this.id,
@@ -28,7 +29,6 @@ class MedicineModel {
       'route_form': routeForm,
       'no_of_days': noOfDays,
       'instruction': instruction,
-      'type': type,
     };
   }
 
@@ -41,7 +41,6 @@ class MedicineModel {
       routeForm: map['route_form'],
       noOfDays: map['no_of_days'],
       instruction: map['instruction'],
-      type: map['type'] ?? 'medicine',
     );
   }
 }

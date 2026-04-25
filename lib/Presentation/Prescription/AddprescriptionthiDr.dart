@@ -1,31 +1,28 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
-import 'package:adixion/Core/widgets/custom_section_title.dart';
-import 'package:adixion/Presentation/Prescription/data/data_source/medicine_database.dart';
-import 'package:adixion/Presentation/Prescription/data/models/medicine_model.dart';
-import 'package:adixion/Presentation/Prescription/prescription_preview.dart';
-import 'package:adixion/Presentation/Prescription/widgets/border_container.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_header.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_text_form_field.dart';
-import 'package:adixion/Presentation/Prescription/widgets/empty_state.dart';
-import 'package:adixion/Presentation/Prescription/widgets/patient_widgets.dart';
-import 'package:adixion/Presentation/Prescription/widgets/show_add_medicine_sheet.dart';
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Data/Data_source/Medicine_datasource.dart';
+import 'package:doctor/Data/model/medicine_model.dart';
+import 'package:doctor/Presentation/Prescription/prescription_preview.dart';
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
+import 'package:doctor/widgets/Add_patient/custom_header_widgets.dart';
+import 'package:doctor/widgets/Add_patient/custom_section_title.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
+import 'package:doctor/widgets/Add_prescription/Patien_widget.dart';
+import 'package:doctor/widgets/Add_prescription/border_container.dart';
+import 'package:doctor/widgets/Add_prescription/button_prescription.dart';
+import 'package:doctor/widgets/Add_prescription/empty_state.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
-class PrescriptionFromDoctorSideLab extends StatefulWidget {
-  const PrescriptionFromDoctorSideLab({super.key});
+class Addperscriptionthirddr extends StatefulWidget {
+  const Addperscriptionthirddr({super.key});
 
   @override
-  State<PrescriptionFromDoctorSideLab> createState() =>
-      _PrescriptionFromDoctorSideLabState();
+  State<Addperscriptionthirddr> createState() => _AddperscriptionthirddrState();
 }
 
-class _PrescriptionFromDoctorSideLabState
-    extends State<PrescriptionFromDoctorSideLab> {
-  void _refreshData() {
+class _AddperscriptionthirddrState extends State<Addperscriptionthirddr> {
+ void _refreshData() {
     setState(() {});
   }
 
@@ -44,7 +41,7 @@ class _PrescriptionFromDoctorSideLabState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomHeader(currentStep: 3),
+              const CustomHeaderWidgets(currentStep: 3),
 
               const SizedBox(height: 16),
 
@@ -69,7 +66,7 @@ class _PrescriptionFromDoctorSideLabState
                         const PatientWidgets(),
 
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                         CustomFormField(
                           label: 'DIAGNOSIS By Staff',
                           hint: 'Viral Fever & Throat Infection',
                           fieldFillColor: Color(0xFFF9FCFF),
@@ -80,7 +77,7 @@ class _PrescriptionFromDoctorSideLabState
                         ),
                         SizedBox(height: 15),
 
-                        const CustomSectionTitle(
+                         CustomSectionTitle(
                           icon: ImageAssets.lab,
                           title: 'Lab Test',
                           widthIcon: 25,
@@ -98,7 +95,7 @@ class _PrescriptionFromDoctorSideLabState
                             }
                             final labTests = snapshot.data ?? [];
                             if (labTests.isEmpty) {
-                              return const EmptyState(
+                              return EmptyState(
                                 icon: ImageAssets.lab,
                                 subtitle: 'Tap below to add Lab Test',
                                 title: 'No Lab Test add yet',
@@ -216,61 +213,67 @@ class _PrescriptionFromDoctorSideLabState
                               height: 50,
                               width: 335,
                               onPressed: () async {
-                                await showAddMedicineSheet(
-                                  context,
-                                  title: 'Add Lab Test',
-                                  nameOf: 'Name of Lab Test',
-                                  name: 'Lab Test',
-                                  textButtom: 'Add lab Test',
-                                  iconButtom: ImageAssets.lab,
-                                  showMedicineFields: false,
-                                );
+                                // await showAddMedicineSheet(
+                                //   context,
+                                //   title: 'Add Lab Test',
+                                //   nameOf: 'Name of Lab Test',
+                                //   name: 'Lab Test',
+                                //   textButtom: 'Add lab Test',
+                                //   iconButtom: ImageAssets.lab,
+                                //   showMedicineFields: false,
+                                // );
+                                
                                 _refreshData();
                               },
                               text: 'Add Lab Test',
                               textStyle: TextStyle(color: ColorApp.textColor),
-                              icon: ImageAssets.add,
+                              subText: ImageAssets.add,
                               buttonColor: const Color(0xFFF9FCFF),
                             ),
                           ),
                         ),
                         SizedBox(height: 60),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CustomButton(
-                              height: 60,
-                              width: 150,
-                              onPressed: () {},
-                              text: 'Preview  Now',
-                              textStyle: TextStyle(
-                                fontSize: 12,
-                                color: ColorApp.textColor,
-                              ),
-                              icon: ImageAssets.drft,
-                              buttonColor: Color(0xFFFFFFFF),
-                              border: Border.all(color: ColorApp.textColor),
-                            ),
-                            CustomButton(
-                              height: 60,
-                              width: 160,
-                              onPressed: () {
-                                Get.to(const PrescriptionPreviewPage());
-                              },
-                              text: 'Preview Persciption',
-                              textStyle: TextStyle(
-                                fontSize: 12,
-                                color: Color(0xFFECECEC),
-                              ),
-                              icon: ImageAssets.send,
-                              widthicon: 20,
-                              heighticon: 20,
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        //   children: [
+                        //     CustomButton(
+                        //       height: 60,
+                        //       width: 150,
+                        //       onPressed: () {},
+                        //       text: 'Preview  Now',
+                        //       textStyle: TextStyle(
+                        //         fontSize: 12,
+                        //         color: ColorApp.textColor,
+                        //       ),
+                        //       subText: ImageAssets.drft,
+                        //       buttonColor: Color(0xFFFFFFFF),
+                        //       border: Border.all(color: ColorApp.textColor),
+                        //     ),
+                        //     CustomButton(
+                        //       height: 60,
+                        //       width: 160,
+                        //       onPressed: () {
+                        //         Get.to(const PrescriptionPreviewPage());
+                        //       },
+                        //       text: 'Preview Persciption',
+                        //       textStyle: TextStyle(
+                        //         fontSize: 12,
+                        //         color: Color(0xFFECECEC),
+                        //       ),
+                        //       subText: ImageAssets.send,
+                        //       widthicon: 20,
+                        //       heighticon: 20,
 
-                              buttonColor: Color(0xFF8D34B0),
-                            ),
-                            SizedBox(height: 80),
-                          ],
-                        ),
+                        //       buttonColor: Color(0xFF8D34B0),
+                        //     ),
+                        //     SizedBox(height: 80),
+                        //   ],
+                        // ),
+                         ButtonPrescription(
+                          isfinish: true,
+                          onPressed: () {
+                        Get.to(const PrescriptionPreviewPage());
+                      }),
                       ],
                     ),
                   ),

@@ -1,4 +1,6 @@
+import 'package:doctor/Presentation/Prescription/AddperscriptionfirstDr.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Prescriptionlist extends StatefulWidget {
   const Prescriptionlist({super.key});
@@ -70,7 +72,7 @@ class _PrescriptionlistState extends State<Prescriptionlist> {
                     top: 45,
                     left: 80,
                     child: Text(
-                      "List of Patient",
+                      "Prescription History",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -88,6 +90,8 @@ class _PrescriptionlistState extends State<Prescriptionlist> {
                       child: IconButton(
                       onPressed: () {
                         // Navigator.pop(context);
+                         print("Mandeep");
+                        Get.to(Addperscriptionfirstdr());
                         
                       },
                       icon: Image.asset(

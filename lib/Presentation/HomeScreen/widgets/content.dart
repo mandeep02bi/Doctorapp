@@ -1,9 +1,10 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/crousel_slider.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/grid_menu.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/record_section.dart';
+
 import 'package:animate_do/animate_do.dart';
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/crousel_slider.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/grid_menu.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/record_section.dart';
 import 'package:flutter/material.dart';
 
 class Content extends StatelessWidget {

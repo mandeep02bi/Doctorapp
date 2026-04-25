@@ -1,8 +1,8 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_header_widgets.dart';
-import 'package:adixion/Core/widgets/custom_section_title.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_text_field.dart';
+
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
+import 'package:doctor/widgets/Add_patient/custom_header_widgets.dart';
+import 'package:doctor/widgets/Add_patient/custom_section_title.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class AddPatientScreenAddressAndLocation extends StatelessWidget {
@@ -16,7 +16,7 @@ class AddPatientScreenAddressAndLocation extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(ImageAssets.backgroundImagePath2),
+              image: AssetImage('assets/images/background/05_Home screen.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -34,7 +34,7 @@ class AddPatientScreenAddressAndLocation extends StatelessWidget {
                         const SizedBox(height: 20),
 
                         const CustomSectionTitle(
-                          icon: ImageAssets.adderssAndLocation,
+                          icon: 'assets/images/Icons/Patient/Add/Location.png',
                           title: 'Address & Location',
                           widthIcon: 18,
                           heightIcon: 18,
@@ -53,19 +53,14 @@ class AddPatientScreenAddressAndLocation extends StatelessWidget {
                         CustomFormField(
                           label: 'City / District',
                           hint: 'Jaipur',
-                          icon: ImageAssets.city,
+                          icon: 'assets/images/Icons/Patient/Add/Skyscraper.png',
                           widthIcon: 18,
                           heightIcon: 18,
                         ),
 
                         const SizedBox(height: 80),
 
-                        CustomButton(
-                          onPressed: () {},
-                          text: 'Add Patient',
-                          icon: ImageAssets.check,
-                          buttonColor: Color(0xFF8D34B0),
-                        ),
+                        CustomButton(onPressed: () {}, text: 'Add Patient', icon: Icons.check ,),
                       ],
                     ),
                   ),

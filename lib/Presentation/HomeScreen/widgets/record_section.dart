@@ -1,6 +1,7 @@
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Presentation/HomeScreen/widgets/record_card.dart';
-import 'package:adixion/Presentation/Patient/add_patient_screen.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Presentation/HomeScreen/widgets/record_card.dart';
+import 'package:doctor/Presentation/Patient/add_patient_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';

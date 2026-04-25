@@ -1,10 +1,10 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Presentation/Patient/add_patient_screen_vitls.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_gender_selection.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_header_widgets.dart';
-import 'package:adixion/Core/widgets/custom_section_title.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_text_field.dart';
+
+import 'package:doctor/Presentation/Patient/add_patient_screen_vitls.dart';
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
+import 'package:doctor/widgets/Add_patient/custom_gender_selection.dart';
+import 'package:doctor/widgets/Add_patient/custom_header_widgets.dart';
+import 'package:doctor/widgets/Add_patient/custom_section_title.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class AddPatientScreen extends StatefulWidget {
@@ -24,6 +24,10 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _dobController = TextEditingController();
+  final TextEditingController _AgeController = TextEditingController();
+
+
+  static const String backgroundImagePath = 'assets/images/background/05_Home screen.jpg';
 
   @override
   void dispose() {
@@ -44,7 +48,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(ImageAssets.backgroundImagePath),
+              image: AssetImage(backgroundImagePath),
               fit: BoxFit.cover,
             ),
           ),
@@ -70,7 +74,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomSectionTitle(
-              icon: ImageAssets.personInformation,
+              icon: 'assets/images/Icons/Patient/Add/add.png',
               title: 'Personal Information',
               widthIcon: 14.14,
               heightIcon: 18,
@@ -83,7 +87,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
                   child: CustomFormField(
                     label: "First Name",
                     hint: "Rishabh",
-                    icon: ImageAssets.name,
+                    icon: 'assets/images/Icons/Patient/Add/e.png',
                     widthIcon: 16,
                     heightIcon: 16,
                     textColor: Color(0xFF888A8E),
@@ -96,6 +100,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
                 Expanded(
                   child: CustomFormField(
                     label: "Last Name",
+                    icon: 'assets/images/Icons/Patient/Add/e.png',
                     hint: "Singh",
                     textColor: Color(0xFF888A8E),
                     controller: _lastNameController,
@@ -111,7 +116,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
             CustomFormField(
               label: "Phone Number",
               hint: "+91 98765 43210",
-              icon: ImageAssets.phone,
+              icon: 'assets/images/Icons/Patient/Add/p.png',
               heightIcon: 16,
               widthIcon: 16,
               textColor: Color(0xFF888A8E),
@@ -125,7 +130,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
             CustomFormField(
               label: "Email Address",
               hint: "patient@email.com",
-              icon: ImageAssets.email,
+              icon: 'assets/images/Icons/Patient/Add/m.png',
               heightIcon: 14.21,
               widthIcon: 16,
               textColor: Color(0xFF888A8E),
@@ -139,7 +144,22 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
             CustomFormField(
               label: "Date of Birth",
               hint: "mm/dd/yyyy",
-              icon: ImageAssets.date,
+              icon: 'assets/images/Icons/Patient/Add/do.png',
+              isDateField: true,
+              onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime(2000),
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime.now(),
+                  );
+
+                  if (pickedDate != null) {
+                    _dobController.text =
+                        "${pickedDate.month}/${pickedDate.day}/${pickedDate.year}";
+                  }
+                },
+
               keyboardType: TextInputType.datetime,
               widthIcon: 14,
               heightIcon: 17.11,
@@ -150,6 +170,20 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
             ),
 
             const SizedBox(height: 20),
+
+
+            CustomFormField(
+              label: "Age",
+              hint: "patient@email.com",
+              icon: 'assets/images/Icons/Patient/Add/m.png',
+              heightIcon: 14.21,
+              widthIcon: 16,
+              textColor: Color(0xFF888A8E),
+              keyboardType: TextInputType.emailAddress,
+              controller: _emailController,
+              validator: (v) => v!.isEmpty ? "Please enter Age" : null,
+            ),
+             const SizedBox(height: 20),
 
             const Text(
               "GENDER",
@@ -183,8 +217,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
                 }
               },
               text: 'Continue',
-              icon: ImageAssets.arrowForward,
-              buttonColor: Color(0xFF8D34B0),
+              icon: Icons.arrow_forward,
             ),
 
             const SizedBox(height: 30),

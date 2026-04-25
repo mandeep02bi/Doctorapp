@@ -1,9 +1,7 @@
-import 'package:adixion/Presentation/Onboarding/Onboardsc.dart';
+import 'package:doctor/Presentation/Onboarding/Onboardsc.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'dart:async';
-
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class AnimatedSplashScreen extends StatefulWidget {
   const AnimatedSplashScreen({super.key});

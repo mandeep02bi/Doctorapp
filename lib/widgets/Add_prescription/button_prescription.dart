@@ -1,11 +1,15 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPrescription extends StatelessWidget {
   final VoidCallback? onPressed;
-  const ButtonPrescription({super.key, required this.onPressed});
+    final VoidCallback? onNextPressed;
+    final bool isfinish;
+
+  const ButtonPrescription({super.key, required this.onPressed, this.onNextPressed, this.isfinish = false});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class ButtonPrescription extends StatelessWidget {
           onPressed: onPressed,
           text: 'Save Draft',
           textStyle: TextStyle(fontSize: 12, color: ColorApp.textColor),
-          icon: ImageAssets.drft,
+          subText: ImageAssets.drft,
           buttonColor: Color(0xFFFFFFFF),
           border: Border.all(color: ColorApp.textColor),
           
@@ -26,9 +30,9 @@ class ButtonPrescription extends StatelessWidget {
         CustomButton(
           height: 60,
           width: 150,
-          onPressed: onPressed,
-          text: 'Next',
-          icon: ImageAssets.send,
+          onPressed: onNextPressed,
+          text: isfinish ?'Finish': 'Next',
+          subText: ImageAssets.send,
           widthicon: 20,
           heighticon: 20,
 

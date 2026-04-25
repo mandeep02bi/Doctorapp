@@ -1,9 +1,10 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
-import 'package:adixion/Presentation/Prescription/data/data_source/medicine_database.dart';
-import 'package:adixion/Presentation/Prescription/data/models/medicine_model.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_text_form_field.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Data/Data_source/Medicine_datasource.dart';
+import 'package:doctor/Data/model/medicine_model.dart';
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 Future<void> showAddMedicineSheet(
@@ -229,7 +230,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                   children: [
                     Expanded(
                       flex: widget.showMedicineFields ? 2 : 1,
-                      child: CustomTextFormField(
+                      child: CustomFormField(
                         controller: medicineNameController,
                         label: '',
                         hint: widget.name ?? 'Medicine Name',
@@ -242,7 +243,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                     if (widget.showMedicineFields) ...[
                       const SizedBox(width: 10),
                       Expanded(
-                        child: CustomTextFormField(
+                        child: CustomFormField(
                           controller: qtyController,
                           label: '',
                           hint: widget.qty ?? 'Qty',
@@ -269,7 +270,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                         ),
                         border: Border.all(color: ColorApp.textColor, width: 1),
                         buttonColor: ColorApp.scaffoldColor,
-                        icon: ImageAssets.drft,
+                        subText: ImageAssets.drft,
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -278,7 +279,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                         height: 60,
                         onPressed: () {},
                         text: 'Choose Template',
-                        icon: ImageAssets.drft,
+                        subText: ImageAssets.drft,
                         textStyle: TextStyle(
                           fontSize: 12,
                           color: ColorApp.textColor,
@@ -297,7 +298,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                   Row(
                     children: [
                       Expanded(
-                        child: CustomTextFormField(
+                        child: CustomFormField(
                           controller: frequencyController,
                           label: widget.lableFrequency ?? 'Frequency',
                           hint: widget.frequency ?? '170',
@@ -309,7 +310,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                       ),
                       const SizedBox(width: 10),
                       Expanded(
-                        child: CustomTextFormField(
+                        child: CustomFormField(
                           controller: routeFormController,
                           label: widget.lableRoute ?? 'Route/ form',
                           hint: widget.route ?? '65',
@@ -328,7 +329,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                   Row(
                     children: [
                       Expanded(
-                        child: CustomTextFormField(
+                        child: CustomFormField(
                           controller: noOfDaysController,
                           label: widget.lableNoofDay ?? 'No of Days',
                           hint: widget.noofDay ?? '170',
@@ -340,7 +341,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                       ),
                       const SizedBox(width: 10),
                       Expanded(
-                        child: CustomTextFormField(
+                        child: CustomFormField(
                           controller: instructionController,
                           label: widget.lableinstruction ?? 'Instruction',
                           hint: widget.instruction ?? '65',
@@ -356,7 +357,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                   const SizedBox(height: 20),
                 ],
 
-                const CustomTextFormField(
+                 CustomFormField(
                   label: 'Additional Comments',
                   hint: "Add instructions, follow-up advice, restictions...",
                   hintStyle: TextStyle(
@@ -375,7 +376,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                     text: widget.textButtom ?? 'Add Medicine',
                     height: 60,
                     width: 250,
-                    icon: widget.iconButtom ?? ImageAssets.drugs,
+                    subText: widget.iconButtom ?? ImageAssets.drugs,
                   ),
                 ),
 

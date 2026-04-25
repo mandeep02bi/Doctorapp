@@ -1,9 +1,10 @@
-import 'package:adixion/Core/Bloc/Login_bloc.dart';
-import 'package:adixion/Core/Controller.dart/themecontroller.dart';
-import 'package:adixion/Presentation/HomeScreen/doctor_home_sc.dart';
+import 'package:doctor/Core/Bloc/Login_bloc.dart';
+import 'package:doctor/Core/Controller.dart/themecontroller.dart';
+import 'package:doctor/Presentation/HomeScreen/doctor_home_sc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+
 
 class Loginsc extends StatefulWidget {
   const Loginsc({super.key});
@@ -13,7 +14,8 @@ class Loginsc extends StatefulWidget {
 }
 
 class _LoginscState extends State<Loginsc> {
-  final ThemeController themeController = Get.put(ThemeController());
+   final ThemeController themeController = Get.put(ThemeController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,9 @@ class _LoginscState extends State<Loginsc> {
 
               /// Dark overlay
               Positioned.fill(
-                child: Container(color: Colors.black.withOpacity(0.1)),
+                child: Container(
+                  color: Colors.black.withOpacity(0.1),
+                ),
               ),
 
               /// Main Content
@@ -86,19 +90,9 @@ class _LoginscState extends State<Loginsc> {
                           /// Google + Facebook Buttons
                           Row(
                             children: [
-                              Expanded(
-                                child: socialButton(
-                                  "Google",
-                                  "assets/Icons/login/google.png",
-                                ),
-                              ),
+                              Expanded(child: socialButton("Google", "assets/images/Icons/login/google.png")),
                               SizedBox(width: 10),
-                              Expanded(
-                                child: socialButton(
-                                  "Facebook",
-                                  "assets/Icons/login/facebook.png",
-                                ),
-                              ),
+                              Expanded(child: socialButton("Facebook", "assets/images/Icons/login/facebook.png")),
                             ],
                           ),
 
@@ -108,12 +102,12 @@ class _LoginscState extends State<Loginsc> {
                           TextField(
                             decoration: InputDecoration(
                               hintText: "itsmemamun1@gmail.com",
-                              suffixIcon: Icon(Icons.check, color: Colors.blue),
+                              suffixIcon:
+                                  Icon(Icons.check, color: Colors.blue),
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.8),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
+                                  borderRadius: BorderRadius.circular(12)),
                             ),
                           ),
 
@@ -127,16 +121,15 @@ class _LoginscState extends State<Loginsc> {
                               suffixIcon: IconButton(
                                 icon: Icon(Icons.visibility_off),
                                 onPressed: () {
-                                  context.read<LoginBloc>().add(
-                                    TogglePassword(),
-                                  );
+                                  context
+                                      .read<LoginBloc>()
+                                      .add(TogglePassword());
                                 },
                               ),
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.8),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
+                                  borderRadius: BorderRadius.circular(12)),
                             ),
                           ),
 
@@ -145,7 +138,9 @@ class _LoginscState extends State<Loginsc> {
                           /// Login Button
                           GestureDetector(
                             onTap: () {
-                              Get.to(() => Doctorhomesc());
+                              
+                                Get.to(()=> Doctorhomesc());
+                              
                             },
                             child: Container(
                               width: double.infinity,
@@ -154,7 +149,7 @@ class _LoginscState extends State<Loginsc> {
                                 gradient: LinearGradient(
                                   colors: [
                                     Color(0xff8E2DE2),
-                                    Color(0xff4A00E0),
+                                    Color(0xff4A00E0)
                                   ],
                                 ),
                                 borderRadius: BorderRadius.circular(14),
@@ -174,17 +169,13 @@ class _LoginscState extends State<Loginsc> {
 
                           SizedBox(height: 15),
 
-                          Text(
-                            "Forgot password",
-                            style: TextStyle(color: Colors.green),
-                          ),
+                          Text("Forgot password",
+                              style: TextStyle(color: Colors.green)),
 
                           Spacer(),
 
-                          Text(
-                            "Don’t have an account? Join us",
-                            style: TextStyle(color: Colors.green),
-                          ),
+                          Text("Don’t have an account? Join us",
+                              style: TextStyle(color: Colors.green)),
                         ],
                       ),
                     ),
@@ -199,21 +190,31 @@ class _LoginscState extends State<Loginsc> {
   }
 
   Widget socialButton(String text, String iconPath) {
-    return Container(
-      height: 55,
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.7),
-        borderRadius: BorderRadius.circular(14),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(iconPath, width: 24, height: 24),
-          const SizedBox(width: 10),
-          Text(text, style: const TextStyle(fontFamily: "Rubik", fontSize: 16)),
-        ],
-      ),
-    );
-  }
+  return Container(
+    height: 55,
+    padding: const EdgeInsets.symmetric(horizontal: 15),
+    decoration: BoxDecoration(
+      color: Colors.white.withOpacity(0.7),
+      borderRadius: BorderRadius.circular(14),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          iconPath,
+          width: 24,
+          height: 24,
+        ),
+        const SizedBox(width: 10),
+        Text(
+          text,
+          style: const TextStyle(
+            fontFamily: "Rubik",
+            fontSize: 16,
+          ),
+        ),
+      ],
+    ),
+  );
+}
 }

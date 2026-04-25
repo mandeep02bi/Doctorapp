@@ -1,4 +1,4 @@
-import 'package:adixion/Core/theme/color_app.dart';
+import 'package:doctor/Core/Theme/color_app.dart';
 import 'package:flutter/material.dart';
 
 class RecordCard extends StatelessWidget {

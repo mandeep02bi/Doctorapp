@@ -1,9 +1,9 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Presentation/Patient/add_patient_screen_address_and_location.dart';
-import 'package:adixion/Core/widgets/custom_button.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_header_widgets.dart';
-import 'package:adixion/Core/widgets/custom_section_title.dart';
-import 'package:adixion/Presentation/Patient/widgets/custom_text_field.dart';
+
+import 'package:doctor/Presentation/Patient/add_patient_screen_address_and_location.dart';
+import 'package:doctor/widgets/Add_patient/custom_button.dart';
+import 'package:doctor/widgets/Add_patient/custom_header_widgets.dart';
+import 'package:doctor/widgets/Add_patient/custom_section_title.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class MedicalInfoScreen extends StatefulWidget {
@@ -15,7 +15,8 @@ class MedicalInfoScreen extends StatefulWidget {
 
 class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
   final _formKey = GlobalKey<FormState>();
- 
+  static const String backgroundImagePath =
+      'assets/images/background/05_Home screen.jpg';
 
   String? selectedBloodGroup;
   final List<String> bloodGroups = [
@@ -37,7 +38,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(ImageAssets.backgroundImagePath2),
+              image: AssetImage(backgroundImagePath),
               fit: BoxFit.cover,
             ),
           ),
@@ -59,7 +60,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const CustomSectionTitle(
-                              icon: 'assets/Icons/Patient/Medicine.png',
+                              icon: 'assets/images/Icons/Patient/Add/Medicine.png',
                               title: 'Vitals',
                               widthIcon: 18,
                               heightIcon: 18,
@@ -78,7 +79,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Height (CM)",
                                     hint: "170",
                                     icon:
-                                        ImageAssets.heightCM,
+                                        'assets/images/Icons/Patient/Add/Height.png',
                                     widthIcon: 16,
                                     heightIcon: 16,
                                     keyboardType: TextInputType.number,
@@ -90,7 +91,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Weight (KG)",
                                     hint: "65",
                                     icon:
-                                        ImageAssets.weightKG,
+                                        'assets/images/Icons/Patient/Add/Weight.png',
                                     widthIcon: 16,
                                     heightIcon: 16,
                                     keyboardType: TextInputType.number,
@@ -107,7 +108,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Pulse",
                                     hint: "170",
                                     icon:
-                                        ImageAssets.pulse,
+                                        'assets/images/Icons/Patient/Add/Pulse.png',
                                     widthIcon: 19,
                                     heightIcon: 19,
                                     keyboardType: TextInputType.number,
@@ -119,7 +120,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                     label: "Respiratory Rate",
                                     hint: "65",
                                     icon:
-                                        ImageAssets.respiratoryRate,
+                                        'assets/images/Icons/Patient/Add/Heart.png',
                                     widthIcon: 22,
                                     heightIcon: 22,
                                     keyboardType: TextInputType.number,
@@ -130,27 +131,27 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
 
                             const SizedBox(height: 30),
 
-                            const CustomSectionTitle(
-                              icon: ImageAssets.medicalHistory,
-                              title: 'Medical History',
-                              widthIcon: 18,
-                              heightIcon: 18,
-                            ),
-                            const SizedBox(height: 20),
+                            // const CustomSectionTitle(
+                            //   icon: 'assets/images/Icons/Patient/Add/File.png',
+                            //   title: 'Medical History',
+                            //   widthIcon: 18,
+                            //   heightIcon: 18,
+                            // ),
+                            // const SizedBox(height: 20),
 
-                            CustomFormField(
-                              label: "Known Allergies",
-                              hint: "E.g. Penicillin, Peanuts, Latex...",
-                              keyboardType: TextInputType.multiline,
-                            ),
+                            // CustomFormField(
+                            //   label: "Known Allergies",
+                            //   hint: "E.g. Penicillin, Peanuts, Latex...",
+                            //   keyboardType: TextInputType.multiline,
+                            // ),
 
-                            const SizedBox(height: 20),
-                            CustomFormField(
-                              label: "Past Medical History",
-                              hint:
-                                  "E.g. Diabetes (Type 2), Previous Surgeries...",
-                              keyboardType: TextInputType.multiline,
-                            ),
+                            // const SizedBox(height: 20),
+                            // CustomFormField(
+                            //   label: "Past Medical History",
+                            //   hint:
+                            //       "E.g. Diabetes (Type 2), Previous Surgeries...",
+                            //   keyboardType: TextInputType.multiline,
+                            // ),
 
                             const SizedBox(height: 40),
                             CustomButton(
@@ -166,8 +167,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
                                 }
                               },
                               text: 'Continue',
-                              icon: ImageAssets.arrowForward,
-                              buttonColor: Color(0xFF8D34B0),
+                              icon: Icons.arrow_forward,
                             ),
                             const SizedBox(height: 20),
                           ],
@@ -191,7 +191,7 @@ class _MedicalInfoScreenState extends State<MedicalInfoScreen> {
         prefixIcon: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Image.asset(
-            'assets/Icons/Patient/Blood.png',
+            'assets/images/Icons/Patient/Add/Blood.png',
             width: 18,
             height: 18,
             color: Colors.redAccent,

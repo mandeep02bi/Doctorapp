@@ -1,17 +1,25 @@
-import 'package:adixion/Core/helper/image_assets.dart';
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Presentation/Prescription/prescription_from_doctor_side2.dart';
-import 'package:adixion/Presentation/Prescription/widgets/button_prescription.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_header.dart';
-import 'package:adixion/Presentation/Prescription/widgets/custom_text_form_field.dart';
-import 'package:adixion/Presentation/Prescription/widgets/patient_widgets.dart';
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
+import 'package:doctor/Presentation/Prescription/AddperscriprionsecDr.dart';
+import 'package:doctor/widgets/Add_patient/custom_header_widgets.dart';
+import 'package:doctor/widgets/Add_patient/custom_text_field.dart';
+import 'package:doctor/widgets/Add_prescription/Patien_widget.dart';
+import 'package:doctor/widgets/Add_prescription/button_prescription.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
-class PrescriptionFromDoctorSide extends StatelessWidget {
-  const PrescriptionFromDoctorSide({super.key});
+class Addperscriptionfirstdr extends StatefulWidget {
+  const Addperscriptionfirstdr({super.key});
 
   @override
+  State<Addperscriptionfirstdr> createState() => _AddperscriptionfirstdrState();
+}
+
+class _AddperscriptionfirstdrState extends State<Addperscriptionfirstdr> {
+
+    // static const String backgroundImagePath = 'assets/images/background/05_Home screen.jpg';
+
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorApp.scaffoldColor,
@@ -19,14 +27,14 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(ImageAssets.backgroundImagePath2),
+              image: AssetImage("assets/images/background/05_Home screen.jpg"),
               fit: BoxFit.cover,
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomHeader(currentStep: 1),
+              const CustomHeaderWidgets(title: "Write a Prescription",currentStep: 1),
 
               const SizedBox(height: 16),
 
@@ -51,7 +59,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         const PatientWidgets(),
 
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                         CustomFormField(
                           label: 'DIAGNOSIS By Staff',
                           hint: 'Viral Fever & Throat Infection',
                           fieldFillColor: Color(0xFFF9FCFF),
@@ -62,7 +70,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                         CustomFormField(
                           label: 'DIAGNOSIS',
                           hint: 'Cough',
                           fieldFillColor: Color(0xFFF9FCFF),
@@ -73,7 +81,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                         CustomFormField(
                           label: 'Finding',
                           hint: 'Cough',
                           fieldFillColor: Color(0xFFF9FCFF),
@@ -87,7 +95,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                              child: CustomTextFormField(
+                              child: CustomFormField(
                                 label: 'Height (cm)',
                                 hint: '170',
                                 fieldFillColor: Color(0xFFFFFFFF),
@@ -99,7 +107,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                             ),
                             const SizedBox(width: 12),
                             Expanded(
-                              child: CustomTextFormField(
+                              child: CustomFormField(
                                 fieldFillColor: Color(0xFFFFFFFF),
                                 icon: ImageAssets.weight,
                                 label: 'Weight (kg)',
@@ -115,8 +123,8 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                              child: CustomTextFormField(
-                                label: 'Bp',
+                              child: CustomFormField(
+                                label: 'Height (cm)',
                                 hint: '170',
                                 fieldFillColor: Color(0xFFFFFFFF),
                                 icon: ImageAssets.heightPrescription,
@@ -127,10 +135,10 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                             ),
                             const SizedBox(width: 12),
                             Expanded(
-                              child: CustomTextFormField(
+                              child: CustomFormField(
                                 fieldFillColor: Color(0xFFFFFFFF),
                                 icon: ImageAssets.weight,
-                                label: 'Hemoglobin (Kg)',
+                                label: 'Weight (kg)',
                                 hint: '70',
                                 widthIcon: 16,
                                 heightIcon: 16,
@@ -140,7 +148,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                        CustomFormField(
                           label: 'DIAGNOSIS',
                           hint: 'Cough',
                           fieldFillColor: Color(0xFFF9FCFF),
@@ -151,7 +159,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                        CustomFormField(
                           label: 'Finding',
                           hint: 'Cough',
                           fieldFillColor: Color(0xFFF9FCFF),
@@ -160,64 +168,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                           heightIcon: 18,
                         ),
                         const SizedBox(height: 12),
-
-                        const CustomTextFormField(
-                          label: 'Treatment or Advice',
-                          hint:
-                              'Add instructions, follow-up advice, restrictions...',
-                          hintStyle: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFF787878),
-                          ),
-
-                          fieldFillColor: Color(0xFFF9FCFF),
-                          keyboardType: TextInputType.multiline,
-                        ),
-                        const SizedBox(height: 12),
-
-                        const CustomTextFormField(
-                          label: 'Chest Complaint',
-                          hint:
-                              'Add instructions, follow-up advice, restrictions...',
-                          hintStyle: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFF787878),
-                          ),
-
-                          fieldFillColor: Color(0xFFF9FCFF),
-                          keyboardType: TextInputType.multiline,
-                        ),
-                        SizedBox(height: 12),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: CustomTextFormField(
-                                label: 'Spo2',
-                                hint: '170',
-                                fieldFillColor: Color(0xFFFFFFFF),
-                                icon: ImageAssets.heightPrescription,
-                                widthIcon: 16,
-                                heightIcon: 16,
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: CustomTextFormField(
-                                fieldFillColor: Color(0xFFFFFFFF),
-                                icon: ImageAssets.weight,
-                                label: 'Respriotry',
-                                hint: '70',
-                                widthIcon: 16,
-                                heightIcon: 16,
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 15),
-
-                        const CustomTextFormField(
+                         CustomFormField(
                           label: 'DOCTOR’S NOTES',
                           hint:
                               'Add instructions, follow-up advice, restrictions...',
@@ -231,13 +182,13 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 12),
-                        const CustomTextFormField(
+                        CustomFormField(
                           label: 'FOLLOW-UP DATE',
                           hint: 'mm/dd/yyyy',
                           keyboardType: TextInputType.number,
                           fieldFillColor: Color(0xFFF9FCFF),
                           icon: ImageAssets.calender,
-                          suffixIcon: ImageAssets.data,
+                          suffixIconPath: ImageAssets.data,
                           widthIcon: 12,
                           heightIcon: 12,
                         ),
@@ -245,7 +196,7 @@ class PrescriptionFromDoctorSide extends StatelessWidget {
 
                         ButtonPrescription(
                           onPressed: () {
-                            Get.to(const PrescriptionFromDoctorSide2());
+                            Get.to(const Addperscriprionsecdr());
                           },
                         ),
 

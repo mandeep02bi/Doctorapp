@@ -1,5 +1,6 @@
-import 'package:adixion/Core/theme/color_app.dart';
-import 'package:adixion/Presentation/Prescription/widgets/border_container.dart';
+
+import 'package:doctor/Core/Theme/color_app.dart';
+import 'package:doctor/widgets/Add_prescription/border_container.dart';
 import 'package:flutter/material.dart';
 
 class EmptyState extends StatelessWidget {

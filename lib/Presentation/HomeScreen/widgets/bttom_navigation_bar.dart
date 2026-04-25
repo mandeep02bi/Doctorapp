@@ -1,4 +1,4 @@
-import 'package:adixion/Core/helper/image_assets.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarWidget extends StatelessWidget {

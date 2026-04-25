@@ -1,5 +1,5 @@
-import 'package:adixion/Core/helper/image_assets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:doctor/Core/helper/image_assets.dart';
 import 'package:flutter/material.dart';
 
 final List<String> imgList = [
