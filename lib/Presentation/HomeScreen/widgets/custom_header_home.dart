@@ -8,8 +8,8 @@ class CustomHeaderHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      width: 375,
-      padding: EdgeInsets.all(20),
+      width: 380,
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage(ImageAssets.homePageHeader)),
         borderRadius: BorderRadius.only(
