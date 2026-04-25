@@ -43,6 +43,7 @@ dependencies:
   path: ^1.9.1
   firebase_core: ^4.7.0
   intl: ^0.20.2
+  carousel_slider: ^5.1.2
 
 dev_dependencies:
   flutter_test:
@@ -81,7 +82,7 @@ flutter:
     - assets/images/Icons/Patient/
     - assets/images/Icons/Prescription/
     - assets/Icons/reminder/
-
+    - assets/Icons/
     - assets/Icons/login/
 
   #   - images/a_dot_ham.jpeg
