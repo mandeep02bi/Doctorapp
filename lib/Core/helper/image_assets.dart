@@ -58,4 +58,13 @@ class ImageAssets {
   static const String recordsIcon = 'assets/Icons/Group.png';
   static const String homenavIcon = 'assets/Icons/home.png';
   static const String favoritesIocn = 'assets/Icons/favorites.png';
+  static const String patientListIcon =  "assets/Icons/patient.png";
+  static const String appointmentIcon =  "assets/Icons/appointment.png";
+  static const String templateIcon = 'assets/Icons/template.png';
+  static const String notificationIocn = 'assets/Icons/notification.png';
+  static const String reportIocn = 'assets/Icons/report.png';
 }
+
+
+      
+     

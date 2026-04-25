@@ -1,3 +1,4 @@
+import 'package:adixion/Core/helper/image_assets.dart';
 import 'package:adixion/Core/theme/color_app.dart';
 import 'package:adixion/Presentation/Patient/Patientlist.dart';
 import 'package:animate_do/animate_do.dart';
@@ -19,11 +20,11 @@ class GridMenu extends StatelessWidget {
       "View Records",
     ];
     final itemsimage = [
-      "assets/Icons/patient.png",
-      "assets/Icons/appointment.png",
-      "assets/Icons/template.png",
-      "assets/Icons/notification.png",
-      "assets/Icons/report.png",
+      ImageAssets.patientListIcon,
+      ImageAssets.appointmentIcon,
+      ImageAssets.templateIcon,
+      ImageAssets.notificationIocn,
+      ImageAssets.reportIocn,
     ];
 
     return GridView.builder(
@@ -66,7 +67,11 @@ class GridMenu extends StatelessWidget {
                   Text(
                     items[index],
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontFamily: "Rubik", fontSize: 12),
+                    style: TextStyle(
+                      fontFamily: "Rubik",
+                      fontSize: 12.3,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ],
               ),
