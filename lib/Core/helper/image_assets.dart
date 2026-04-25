@@ -46,6 +46,16 @@ class ImageAssets {
   static const String notes = 'assets/Icons/reminder/Notes.png';
   static const String reminder = 'assets/Icons/reminder/Reminder.png';
   static const String wallet = 'assets/Icons/reminder/Wallet.png';
-  static const String blood =  'assets/images/Icons/Patient/Blood.png';
-
+  static const String blood = 'assets/images/Icons/Patient/Blood.png';
+  static const String homePageHeader =
+      'assets/images/background/custom_header_home.png';
+  static const String homeIcon = 'assets/Icons/Home/home_page_icon.png';
+  static const String carouselSlider1 = 'assets/Icons/Home/1.png';
+  static const String carouselSlider2 = 'assets/Icons/Home/2.png';
+  static const String carouselSlider3 = 'assets/Icons/Home/3.png';
+  static const String iconUpgrade = 'assets/Icons/icon_upgrade.png';
+  static const String messageIcon = 'assets/Icons/Vector.png';
+  static const String recordsIcon = 'assets/Icons/Group.png';
+  static const String homenavIcon = 'assets/Icons/home.png';
+  static const String favoritesIocn = 'assets/Icons/favorites.png';
 }
