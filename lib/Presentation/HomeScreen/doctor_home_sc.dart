@@ -1,4 +1,4 @@
-import 'package:adixion/Core/Bloc/home_bloc.dart';
+import 'package:adixion/Core/Bloc/Home_bloc.dart';
 import 'package:adixion/Core/Controller.dart/themecontroller.dart';
 import 'package:adixion/Presentation/HomeScreen/widgets/bttom_navigation_bar.dart';
 import 'package:adixion/Presentation/HomeScreen/widgets/content.dart';
