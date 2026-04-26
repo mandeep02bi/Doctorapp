@@ -15,8 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   final double? heightIcon;
   final Color? fieldFillColor;
   final TextStyle? hintStyle;
-    final TextStyle? lableStyle;
-
+  final TextStyle? lableStyle;
 
   const CustomTextFormField({
     super.key,
@@ -46,14 +45,15 @@ class CustomTextFormField extends StatelessWidget {
       children: [
         Text(
           label.toUpperCase(),
-          style: lableStyle ?? TextStyle(
-            fontSize: 14,
-            color: ColorApp.labelColor,
-            fontWeight: FontWeight.w600,
-            letterSpacing: 0.8,
-          ),
+          style:
+              lableStyle ??
+              TextStyle(
+                fontSize: 14,
+                color: ColorApp.labelColor,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.8,
+              ),
         ),
-        const SizedBox(height: 8),
 
         TextFormField(
           controller: controller,
@@ -78,7 +78,7 @@ class CustomTextFormField extends StatelessWidget {
                   )
                 : null,
             suffixIcon: suffixIcon != null
-                 ? Padding(
+                ? Padding(
                     padding: const EdgeInsets.all(12),
                     child: Image.asset(
                       suffixIcon!,

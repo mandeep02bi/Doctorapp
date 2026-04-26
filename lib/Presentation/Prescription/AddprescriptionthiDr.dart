@@ -11,6 +11,7 @@ import 'package:doctor/widgets/Add_prescription/Patien_widget.dart';
 import 'package:doctor/widgets/Add_prescription/border_container.dart';
 import 'package:doctor/widgets/Add_prescription/button_prescription.dart';
 import 'package:doctor/widgets/Add_prescription/empty_state.dart';
+import 'package:doctor/widgets/Add_prescription/show_add_medicine_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -213,15 +214,15 @@ class _AddperscriptionthirddrState extends State<Addperscriptionthirddr> {
                               height: 50,
                               width: 335,
                               onPressed: () async {
-                                // await showAddMedicineSheet(
-                                //   context,
-                                //   title: 'Add Lab Test',
-                                //   nameOf: 'Name of Lab Test',
-                                //   name: 'Lab Test',
-                                //   textButtom: 'Add lab Test',
-                                //   iconButtom: ImageAssets.lab,
-                                //   showMedicineFields: false,
-                                // );
+                                await showAddMedicineSheet(
+                                  context,
+                                  title: 'Add Lab Test',
+                                  nameOf: 'Name of Lab Test',
+                                  name: 'Lab Test',
+                                  textButtom: 'Add lab Test',
+                                  iconButtom: ImageAssets.lab,
+                                  showMedicineFields: false,
+                                );
                                 
                                 _refreshData();
                               },

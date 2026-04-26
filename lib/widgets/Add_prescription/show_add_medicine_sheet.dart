@@ -1,4 +1,3 @@
-
 import 'package:doctor/Core/Theme/color_app.dart';
 import 'package:doctor/Core/helper/image_assets.dart';
 import 'package:doctor/Data/Data_source/Medicine_datasource.dart';
@@ -199,7 +198,6 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
 
                 const SizedBox(height: 16),
 
-                // Labels - qty بتظهر بس لو showMedicineFields
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -225,7 +223,6 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
 
                 const SizedBox(height: 8),
 
-                // Medicine Name + Qty - qty بتظهر بس لو showMedicineFields
                 Row(
                   children: [
                     Expanded(
@@ -258,10 +255,12 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
 
                 // Save and Add + Choose Template
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: CustomButton(
                         height: 60,
+                        width: 150,
                         onPressed: () {},
                         text: 'Save and Add',
                         textStyle: TextStyle(
@@ -270,16 +269,18 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                         ),
                         border: Border.all(color: ColorApp.textColor, width: 1),
                         buttonColor: ColorApp.scaffoldColor,
-                        subText: ImageAssets.drft,
+                        assetIcon: ImageAssets.drft,
                       ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: CustomButton(
                         height: 60,
+                        width: 150,
+
                         onPressed: () {},
                         text: 'Choose Template',
-                        subText: ImageAssets.drft,
+                        assetIcon: ImageAssets.drft,
                         textStyle: TextStyle(
                           fontSize: 12,
                           color: ColorApp.textColor,
@@ -357,7 +358,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                   const SizedBox(height: 20),
                 ],
 
-                 CustomFormField(
+                CustomFormField(
                   label: 'Additional Comments',
                   hint: "Add instructions, follow-up advice, restictions...",
                   hintStyle: TextStyle(
@@ -376,7 +377,7 @@ class _AddMedicineSheetState extends State<AddMedicineSheet> {
                     text: widget.textButtom ?? 'Add Medicine',
                     height: 60,
                     width: 250,
-                    subText: widget.iconButtom ?? ImageAssets.drugs,
+                    assetIcon: widget.iconButtom ?? ImageAssets.drugs,
                   ),
                 ),
 

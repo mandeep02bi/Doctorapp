@@ -1,6 +1,6 @@
-
 import 'package:doctor/Core/Theme/color_app.dart';
 import 'package:doctor/Presentation/HomeScreen/widgets/record_card.dart';
+import 'package:doctor/Presentation/MyTemplate/my_template.dart';
 import 'package:doctor/Presentation/Patient/add_patient_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -34,10 +34,13 @@ class RecordSection extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: RecordCard(
-                items: "assets/Icons/temp.png",
-                itemname: "My Template",
-                subitemname: 'Your saved templates',
+              child: GestureDetector(
+                onTap: () => Get.to(MyTemplate()),
+                child: RecordCard(
+                  items: "assets/Icons/temp.png",
+                  itemname: "My Template",
+                  subitemname: 'Your saved templates',
+                ),
               ),
             ),
             SizedBox(width: 10),
