@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String text;
-  final String? subText; // 👈 NEW STRING
+  final String? subText; 
   final IconData? icon;
   final double? widthicon;
   final double? heighticon;
@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final TextStyle? textStyle;
   final Border? border;
-    final String? assetIcon;      // 👈 NEW for image asset
+    final String? assetIcon;     
 
 
    CustomButton({
@@ -20,8 +20,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     this.subText,
-        this.assetIcon, // 👈 add this
-
+        this.assetIcon,
     this.icon,
     this.buttonColor,
     this.widthicon,
