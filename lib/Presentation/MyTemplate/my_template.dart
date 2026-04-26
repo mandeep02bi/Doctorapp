@@ -18,9 +18,7 @@ class MyTemplate extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: Column(
-            children: [const CustomHeaderTemplate(title: 'My Template')],
-          ),
+          child: const CustomHeaderTemplate(title: 'My Template'),
         ),
       ),
     );
