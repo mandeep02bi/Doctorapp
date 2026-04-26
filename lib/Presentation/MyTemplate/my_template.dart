@@ -1,9 +1,6 @@
 import 'package:doctor/Core/Theme/color_app.dart';
 import 'package:doctor/Core/helper/image_assets.dart';
 import 'package:doctor/Presentation/MyTemplate/widgets/custom_header_template.dart';
-import 'package:doctor/Presentation/MyTemplate/widgets/medicine_template.dart';
-import 'package:doctor/Presentation/MyTemplate/widgets/patine_widgets_template.dart';
-import 'package:doctor/widgets/Add_prescription/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class MyTemplate extends StatelessWidget {
