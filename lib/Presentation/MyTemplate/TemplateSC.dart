@@ -1,7 +1,6 @@
 import 'package:doctor/Core/Controller.dart/templatecontroller.dart';
 import 'package:doctor/Core/Controller.dart/templating.dart';
 import 'package:doctor/Presentation/Reminder/widgets/custom_header_reminder.dart';
-import 'package:doctor/widgets/Common/Appheader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

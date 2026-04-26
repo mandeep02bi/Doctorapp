@@ -24,7 +24,6 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _dobController = TextEditingController();
-  final TextEditingController _AgeController = TextEditingController();
 
 
   static const String backgroundImagePath = 'assets/images/background/05_Home screen.jpg';

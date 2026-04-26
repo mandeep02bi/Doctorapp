@@ -137,37 +137,6 @@ class _AppointmentState extends State<Appointment> {
     );
   }
 
-  /// ---------- HEADER ----------
-  Widget _header() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        children: [
-          _iconBox(Icons.arrow_back_ios_new),
-          const SizedBox(width: 10),
-          const Text(
-            "Book an Appointment",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w600),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _iconBox(IconData icon) {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Icon(icon, color: Colors.white),
-    );
-  }
 
   /// ---------- PATIENT CARD ----------
   Widget _patientCard() {
