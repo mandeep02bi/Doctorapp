@@ -12,7 +12,8 @@ platform :android do
       firebase_cli_token: ENV['FIREBASE_CLI_TOKEN'],
       groups: "tester",
       release_notes: "CI build from GitHub Actions",
-      apk_path: "../build/app/outputs/flutter-apk/app-release.apk"
+      android_artifact_type: "APK",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-release.apk"
     )
   end
 end
