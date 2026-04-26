@@ -18,7 +18,12 @@ class MyTemplate extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: const CustomHeaderTemplate(title: 'My Template'),
+          child: Column(
+            children: [
+              const CustomHeaderTemplate(title: 'Set Reminder'),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );

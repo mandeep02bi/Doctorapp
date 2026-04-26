@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String text;
-  final String? subText; 
+  final String? subText;
   final IconData? icon;
   final double? widthicon;
   final double? heighticon;
@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
   final double? height;
   final double? width;
   final TextStyle? textStyle;
-  final TextStyle? subTextStyle; 
+  final TextStyle? subTextStyle;
   final Border? border;
   final String? assetIcon;
 
@@ -37,8 +37,7 @@ class CustomButton extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onTap: onPressed,
-        behavior: HitTestBehavior
-            .opaque,
+        behavior: HitTestBehavior.opaque,
         child: Container(
           width: width ?? double.infinity,
           height: height ?? 60,
