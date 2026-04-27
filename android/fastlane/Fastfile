@@ -1,11 +1,12 @@
 default_platform(:android)
 
 platform :android do
-  desc "Distribute the app to Firebase App Distribution"
-
   lane :deploy_to_firebase do
     sh 'cd .. && flutter pub get'
     sh 'cd .. && flutter build apk --release'
+
+    puts "APP ID: #{ENV['FIREBASE_APP_ID']}"
+    puts "TOKEN: #{ENV['FIREBASE_CLI_TOKEN']}"
 
     firebase_app_distribution(
       app: ENV['FIREBASE_APP_ID'],
