@@ -4,8 +4,8 @@ platform :android do
   desc "Distribute the app to Firebase App Distribution"
 
   lane :deploy_to_firebase do
-    sh 'flutter pub get'
-    sh 'flutter build apk --release'
+    sh 'cd .. && flutter pub get'
+    sh 'cd .. && flutter build apk --release'
 
     firebase_app_distribution(
       app: ENV['FIREBASE_APP_ID'],
